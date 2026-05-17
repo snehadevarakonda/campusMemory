@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>class chaos — Campus Memories</title>
+  <link rel="stylesheet" href="/campusMemory/css/style.css?v=5" />
+</head>
+<body>
+  <div id="loading" class="loading-overlay">
+    <div class="spinner"></div>
+    <p class="loading-label">loading the vibes…</p>
+  </div>
+
+  <nav class="navbar">
+    <a href="/campusMemory/dashboard/" class="logo">Campus Memories</a>
+    <div class="nav-links">
+      <div id="userSearchMount"></div>
+      <div id="mainNav" class="nav-pills-wrap"></div>
+      <button id="themeToggle" class="btn btn-ghost btn-sm" type="button" title="toggle vibe">🌙</button>
+      <button id="logoutBtn" class="btn btn-outline btn-sm">peace out</button>
+    </div>
+  </nav>
+
+  <main class="dashboard-layout">
+    <header class="feed-page-header">
+      <h1 class="feed-title">class chaos</h1>
+      <p class="feed-sub">your section’s memory dump</p>
+    </header>
+    <div id="classBadge" class="class-badge">loading your batch…</div>
+
+    <section class="create-post-card">
+      <h3>drop a memory</h3>
+      <div id="postAlert" class="alert alert-error"></div>
+      <form id="createPostForm">
+        <textarea id="caption" name="caption" placeholder="what’s the lore here 👀" required></textarea>
+        <label class="image-upload-area" for="postImage">
+          <span id="uploadLabel">tap to add the pic</span>
+          <input type="file" id="postImage" name="image" accept="image/*" required />
+          <img id="postPreview" class="post-preview-img" alt="Preview" />
+        </label>
+        <button type="submit" class="btn btn-primary">drop it</button>
+      </form>
+    </section>
+
+    <section id="feedContainer">
+      <div class="empty-state">
+        <div class="emoji">📭</div>
+        <p>loading the vibes…</p>
+      </div>
+    </section>
+  </main>
+
+    <script src="/campusMemory/js/github-pages.js"></script>
+  <script src="/campusMemory/js/demo-backend.js"></script>
+<script src="/campusMemory/js/copy.js?v=5"></script>
+  <script src="/campusMemory/js/api.js?v=5"></script>
+  <script src="/campusMemory/js/social.js?v=5"></script>
+  <script src="/campusMemory/js/feed.js?v=5"></script>
+  <script>
+    if (requireAuth()) {
+      initTheme();
+      const nav = document.getElementById('mainNav');
+      if (nav) nav.innerHTML = buildNav('/dashboard');
+      initUserSearch();
+      initDashboard();
+    }
+  </script>
+</body>
+</html>

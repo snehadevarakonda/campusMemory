@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>you — Campus Memories</title>
+  <link rel="stylesheet" href="/campusMemory/css/style.css?v=5" />
+</head>
+<body>
+  <div id="loading" class="loading-overlay"><div class="spinner"></div></div>
+
+  <nav class="navbar">
+    <a href="/campusMemory/recent/" class="logo">Campus Memories</a>
+    <div class="nav-links">
+      <div id="userSearchMount"></div>
+      <div id="mainNav" class="nav-pills-wrap"></div>
+      <button id="themeToggle" class="btn btn-ghost btn-sm" type="button">🌙</button>
+      <button id="logoutBtn" class="btn btn-outline btn-sm" type="button">peace out</button>
+    </div>
+  </nav>
+
+  <main class="dashboard-layout profile-page">
+    <section class="profile-header profile-ig" id="profileHeader">
+      <div class="profile-top-row">
+        <img id="profileAvatar" class="avatar avatar-lg" src="" alt="Profile" />
+        <div class="profile-meta">
+          <h1 id="profileName" class="profile-name">loading profile…</h1>
+          <p id="profileUsername" class="profile-username"></p>
+          <div id="profileActions" class="profile-actions"></div>
+          <div class="profile-stats profile-stats-row">
+            <div class="stat"><span id="postCount" class="stat-num">0</span> <span class="stat-label">memory drops</span></div>
+            <div class="stat"><span id="followersCount" class="stat-num">0</span> <span class="stat-label">the gang</span></div>
+            <div class="stat"><span id="followingCount" class="stat-num">0</span> <span class="stat-label">vibe circle</span></div>
+          </div>
+        </div>
+      </div>
+      <p id="profileClass" class="profile-class"></p>
+      <p id="profileDept" class="profile-class"></p>
+    </section>
+
+    <h3 class="profile-grid-title">core memories</h3>
+    <div id="profileGrid" class="profile-grid">
+      <p class="loading-text">loading profile…</p>
+    </div>
+  </main>
+
+    <script src="/campusMemory/js/github-pages.js"></script>
+  <script src="/campusMemory/js/demo-backend.js"></script>
+<script src="/campusMemory/js/copy.js?v=5"></script>
+  <script src="/campusMemory/js/api.js?v=5"></script>
+  <script src="/campusMemory/js/social.js?v=5"></script>
+  <script src="/campusMemory/js/profile.js?v=5"></script>
+  <script>
+    if (requireAuth()) initProfile();
+  </script>
+</body>
+</html>

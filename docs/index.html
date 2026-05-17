@@ -3,55 +3,340 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Campus Memories — Live Project</title>
+  <title>Campus Memories — Your class. Your chaos. Your memories.</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Syne:wght@700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/campusMemory/css/landing.css?v=5" />
 </head>
-<body>
-  <div class="bg"></div>
-  <main class="card">
-    <span class="pill">full-stack · node · mongodb</span>
-    <h1>Campus Memories</h1>
-    <p class="sub">
-      Private college social app — class feeds, explore, following, profiles, stories.
-      Built with Express, MongoDB, and vanilla JS.
-    </p>
-    <div class="actions">
-      <a id="liveAppBtn" class="btn primary" href="#" target="_blank" rel="noopener">
-        open live app →
-      </a>
-      <a class="btn ghost" href="https://github.com/snehadevarakonda/campusMemory" target="_blank" rel="noopener">
-        view source
-      </a>
-    </div>
-    <p id="setupHint" class="hint hidden">
-      Live app URL not set yet. Deploy on Render, then update <code>LIVE_APP_URL</code> in <code>docs/config.js</code>.
-    </p>
-    <ul class="features">
-      <li>class chaos feed</li>
-      <li>fresh chaos explore</li>
-      <li>inner circle following</li>
-      <li>JWT auth · likes · comments</li>
-    </ul>
-    <footer>
-      <a href="https://snehadevarakonda.github.io/Portfolio/">← back to portfolio</a>
-    </footer>
-  </main>
-  <script src="config.js"></script>
-  <script>
-    const btn = document.getElementById('liveAppBtn');
-    const hint = document.getElementById('setupHint');
-    const url = window.LIVE_APP_URL || '';
+<body class="landing-page">
+  <div class="lp-loader" id="lpLoader" aria-hidden="true">
+    <div class="lp-loader-ring"></div>
+    <span>loading the vibes…</span>
+  </div>
 
-    if (url && !url.includes('YOUR_RENDER')) {
-      btn.href = url;
-    } else {
-      btn.href = 'https://github.com/snehadevarakonda/campusMemory#deploy-render--mongodb-atlas';
-      btn.textContent = 'setup live deploy →';
-      hint.classList.remove('hidden');
-    }
-  </script>
+  <div class="lp-blob lp-blob-1"></div>
+  <div class="lp-blob lp-blob-2"></div>
+  <div class="lp-blob lp-blob-3"></div>
+
+  <header class="lp-nav" id="lpNav">
+    <a href="/campusMemory/" class="lp-logo">
+      <span class="lp-logo-icon">📸</span>
+      <span>Campus Memories</span>
+    </a>
+    <nav class="lp-nav-links">
+      <a href="#preview">Preview</a>
+      <a href="#features">Features</a>
+      <a href="#privacy">Privacy</a>
+      <a href="#legacy">Legacy</a>
+    </nav>
+    <div class="lp-nav-actions">
+      <a href="/campusMemory/login/" class="lp-btn lp-btn-ghost lp-btn-sm">Login</a>
+      <a href="/campusMemory/signup/" class="lp-btn lp-btn-primary lp-btn-sm">Join Your Batch</a>
+    </div>
+  </header>
+
+  <!-- 1. HERO -->
+  <section class="lp-hero" id="hero">
+    <div class="lp-hero-inner lp-reveal">
+      <div class="lp-hero-copy">
+        <span class="lp-pill">Private · For your batch only</span>
+        <h1>Your class.<br /><span class="lp-gradient-text">Your chaos.</span><br />Your memories.</h1>
+        <p class="lp-hero-sub">
+          The private social platform where college students preserve fest pics, farewell lore,
+          and main-character moments — only with the people who were actually there.
+        </p>
+        <div class="lp-hero-ctas">
+          <a href="/campusMemory/signup/" class="lp-btn lp-btn-primary lp-btn-lg">Join Your Batch</a>
+          <a href="#preview" class="lp-btn lp-btn-glass lp-btn-lg">Explore Campus</a>
+          <a href="/campusMemory/login/" class="lp-btn lp-btn-outline lp-btn-lg">Login</a>
+        </div>
+        <div class="lp-hero-stats">
+          <div><strong>Class-only</strong><span>feeds</span></div>
+          <div><strong>Stories</strong><span>24h vibe</span></div>
+          <div><strong>Legacy</strong><span>for seniors</span></div>
+        </div>
+      </div>
+      <div class="lp-hero-visual">
+        <div class="lp-float-card lp-float-1">
+          <div class="lp-mock-story-ring"></div>
+          <span>fest arc 🔥</span>
+        </div>
+        <div class="lp-float-card lp-float-2">
+          <div class="lp-mock-img" style="--hue: 280"></div>
+          <p>peak fest fr 🔥</p>
+          <small>@batch_3A</small>
+        </div>
+        <div class="lp-float-card lp-float-3">
+          <div class="lp-mock-img" style="--hue: 330"></div>
+          <p>main character energy</p>
+        </div>
+        <div class="lp-phone-mock">
+          <div class="lp-phone-notch"></div>
+          <div class="lp-phone-screen">
+            <div class="lp-phone-stories">
+              <span></span><span></span><span></span><span></span>
+            </div>
+            <div class="lp-phone-post">
+              <div class="lp-mock-img" style="--hue: 260"></div>
+              <p>farewell lore 😭✨</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <a href="#preview" class="lp-scroll-hint" aria-label="Scroll down">
+      <span></span>
+    </a>
+  </section>
+
+  <!-- 2. PREVIEW -->
+  <section class="lp-section lp-preview" id="preview">
+    <div class="lp-container">
+      <div class="lp-section-head lp-reveal">
+        <span class="lp-label">Live preview</span>
+        <h2>Looks like the app you already live on</h2>
+        <p>class chaos. batch moments. fresh chaos. core memories. built for your batch — not the whole internet.</p>
+      </div>
+      <div class="lp-preview-grid">
+        <article class="lp-glass-card lp-preview-card lp-reveal" data-delay="0">
+          <span class="lp-card-tag">class chaos</span>
+          <div class="lp-mini-feed">
+            <div class="lp-mini-post">
+              <div class="lp-avatar"></div>
+              <div><strong>Section A</strong><p>batch memories unlocked 📸</p></div>
+            </div>
+            <div class="lp-mock-img lp-mock-tall" style="--hue: 200"></div>
+            <div class="lp-mini-actions">❤️ 47 · 💬 12</div>
+          </div>
+        </article>
+        <article class="lp-glass-card lp-preview-card lp-reveal" data-delay="1">
+          <span class="lp-card-tag">batch moments</span>
+          <div class="lp-mini-stories">
+            <div class="lp-story-bubble"><span></span><small>you</small></div>
+            <div class="lp-story-bubble active"><span></span><small>fest</small></div>
+            <div class="lp-story-bubble"><span></span><small>squad</small></div>
+            <div class="lp-story-bubble"><span></span><small>lore</small></div>
+          </div>
+          <p class="lp-caption">peak fest fr 🔥</p>
+        </article>
+        <article class="lp-glass-card lp-preview-card lp-reveal" data-delay="2">
+          <span class="lp-card-tag">you</span>
+          <div class="lp-mini-profile">
+            <div class="lp-avatar lg"></div>
+            <strong>@campus.vibe</strong>
+            <span>BIET · III CSE · Sec A</span>
+            <div class="lp-profile-grid">
+              <div></div><div></div><div></div><div></div>
+            </div>
+          </div>
+        </article>
+        <article class="lp-glass-card lp-preview-card lp-reveal" data-delay="3">
+          <span class="lp-card-tag">fresh chaos</span>
+          <div class="lp-mini-explore">
+            <div class="lp-mock-img" style="--hue: 310"></div>
+            <div class="lp-mock-img" style="--hue: 170"></div>
+            <div class="lp-mock-img" style="--hue: 40"></div>
+            <div class="lp-mock-img" style="--hue: 260"></div>
+          </div>
+          <p class="lp-caption">campus culture hits different</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. FEATURES -->
+  <section class="lp-section lp-features" id="features">
+    <div class="lp-container">
+      <div class="lp-section-head lp-reveal">
+        <span class="lp-label">Why students love it</span>
+        <h2>Your digital yearbook, but actually fun</h2>
+      </div>
+      <div class="lp-feature-grid">
+        <article class="lp-feature-card lp-reveal">
+          <div class="lp-feature-icon">🔒</div>
+          <h3>Private Class Feeds</h3>
+          <p>Memories stay inside your section bubble — not random strangers on the internet.</p>
+        </article>
+        <article class="lp-feature-card lp-reveal">
+          <div class="lp-feature-icon">✨</div>
+          <h3>Stories &amp; Memories</h3>
+          <p>24-hour stories + permanent posts for the lore that deserves to live forever.</p>
+        </article>
+        <article class="lp-feature-card lp-reveal">
+          <div class="lp-feature-icon">🌐</div>
+          <h3>Explore Campus Culture</h3>
+          <p>See what's popping across your college — fests, clubs, and chaotic good energy.</p>
+        </article>
+        <article class="lp-feature-card lp-reveal">
+          <div class="lp-feature-icon">👑</div>
+          <h3>Senior Legacy Profiles</h3>
+          <p>Final-year students leave a premium legacy — farewells, wins, and batch icon energy.</p>
+        </article>
+        <article class="lp-feature-card lp-reveal">
+          <div class="lp-feature-icon">🫂</div>
+          <h3>Follow Your Batchmates</h3>
+          <p>Find friends by @username and build your own vibe feed of people you actually know.</p>
+        </article>
+        <article class="lp-feature-card lp-reveal">
+          <div class="lp-feature-icon">📷</div>
+          <h3>Preserve Every Moment</h3>
+          <p>From classroom chaos to farewell tears — nothing gets lost in a random camera roll.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. PRIVACY -->
+  <section class="lp-section lp-privacy" id="privacy">
+    <div class="lp-container lp-privacy-layout">
+      <div class="lp-privacy-copy lp-reveal">
+        <span class="lp-label">How privacy works</span>
+        <h2>Your class community.<br />Not the whole world.</h2>
+        <p>
+          Students only see feeds meant for their people — filtered by year, branch, and section.
+          A safe college environment that still feels social.
+        </p>
+        <ul class="lp-privacy-list">
+          <li>Class dashboard = same year + section</li>
+          <li>fresh chaos = your university culture</li>
+          <li>Search &amp; view profiles across campus</li>
+        </ul>
+      </div>
+      <div class="lp-privacy-visual lp-reveal">
+        <div class="lp-hierarchy">
+          <div class="lp-chip">University</div>
+          <div class="lp-hierarchy-line"></div>
+          <div class="lp-chip lp-chip-accent">III Year</div>
+          <div class="lp-hierarchy-line"></div>
+          <div class="lp-chip">CSE</div>
+          <div class="lp-hierarchy-line"></div>
+          <div class="lp-chip lp-chip-glow">Section A</div>
+        </div>
+        <div class="lp-privacy-badges">
+          <span class="lp-badge">🔐 Class-only posts</span>
+          <span class="lp-badge">🎓 Year filter</span>
+          <span class="lp-badge">🛡️ Safe space</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. LEGACY -->
+  <section class="lp-section lp-legacy" id="legacy">
+    <div class="lp-container">
+      <div class="lp-legacy-card lp-reveal">
+        <div class="lp-legacy-glow"></div>
+        <div class="lp-legacy-content">
+          <span class="lp-label">For III &amp; IV year</span>
+          <h2>Leave your era behind</h2>
+          <p>
+            Seniors unlock public legacy profiles — showcase farewell memories, achievements,
+            and the moments that defined your batch. Your campus story, preserved.
+          </p>
+          <div class="lp-legacy-badges">
+            <span class="lp-legacy-badge">✦ Legacy Batch</span>
+            <span class="lp-legacy-badge">✦ Campus Icon</span>
+            <span class="lp-legacy-badge">✦ Final Year Era</span>
+          </div>
+          <a href="/campusMemory/signup/" class="lp-btn lp-btn-primary">Claim Your Legacy</a>
+        </div>
+        <div class="lp-legacy-visual">
+          <div class="lp-legacy-portrait">
+            <div class="lp-avatar xl"></div>
+            <strong>Senior '25</strong>
+            <span>farewell memories hit different</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. TESTIMONIALS -->
+  <section class="lp-section lp-testimonials" id="testimonials">
+    <div class="lp-container">
+      <div class="lp-section-head lp-reveal">
+        <span class="lp-label">Real batch energy</span>
+        <h2>Students are already obsessed</h2>
+      </div>
+      <div class="lp-carousel-wrap lp-reveal">
+        <div class="lp-carousel" id="lpCarousel">
+          <blockquote class="lp-testimonial lp-glass-card">
+            <div class="lp-testimonial-head">
+              <div class="lp-avatar"></div>
+              <div><strong>Priya · CSE '25</strong><span>Section B</span></div>
+            </div>
+            <p>"This app literally became our digital yearbook. Farewell pics hit different here."</p>
+          </blockquote>
+          <blockquote class="lp-testimonial lp-glass-card">
+            <div class="lp-testimonial-head">
+              <div class="lp-avatar" style="--hue: 320"></div>
+              <div><strong>Arjun · ECE '24</strong><span>Legacy batch</span></div>
+            </div>
+            <p>"Feels like our private Instagram. No randos, just the squad from our section."</p>
+          </blockquote>
+          <blockquote class="lp-testimonial lp-glass-card">
+            <div class="lp-testimonial-head">
+              <div class="lp-avatar" style="--hue: 180"></div>
+              <div><strong>Sneha · III Year</strong><span>BIET</span></div>
+            </div>
+            <p>"We posted fest chaos at 2am and the whole class was vibing in the comments. Unreal."</p>
+          </blockquote>
+        </div>
+        <div class="lp-carousel-dots" id="lpCarouselDots"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. FINAL CTA -->
+  <section class="lp-section lp-final-cta">
+    <div class="lp-cta-bg"></div>
+    <div class="lp-container lp-cta-inner lp-reveal">
+      <h2>Your college journey<br />deserves a home.</h2>
+      <p>Every batch has a story. Start yours before the memories fade.</p>
+      <div class="lp-hero-ctas">
+        <a href="/campusMemory/signup/" class="lp-btn lp-btn-primary lp-btn-lg">Create Your Community</a>
+        <a href="/campusMemory/signup/" class="lp-btn lp-btn-glass lp-btn-lg">Join Your Class</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8. FOOTER -->
+  <footer class="lp-footer">
+    <div class="lp-container lp-footer-grid">
+      <div class="lp-footer-brand">
+        <a href="/campusMemory/" class="lp-logo"><span class="lp-logo-icon">📸</span> Campus Memories</a>
+        <p>Built for students, by students.</p>
+      </div>
+      <div class="lp-footer-links">
+        <h4>Product</h4>
+        <a href="#features">Features</a>
+        <a href="#privacy">Privacy</a>
+        <a href="#legacy">Legacy</a>
+      </div>
+      <div class="lp-footer-links">
+        <h4>Account</h4>
+        <a href="/campusMemory/signup/">Sign up</a>
+        <a href="/campusMemory/login/">Login</a>
+        <a href="/campusMemory/dashboard/">Dashboard</a>
+      </div>
+      <div class="lp-footer-social">
+        <h4>Connect</h4>
+        <div class="lp-social-icons">
+          <a href="#" aria-label="Instagram">📷</a>
+          <a href="#" aria-label="Twitter">𝕏</a>
+          <a href="#" aria-label="LinkedIn">in</a>
+        </div>
+      </div>
+    </div>
+    <div class="lp-footer-bottom">
+      <p>© 2026 Campus Memories. All rights reserved.</p>
+    </div>
+  </footer>
+
+    <script src="/campusMemory/js/github-pages.js"></script>
+  <script src="/campusMemory/js/demo-backend.js"></script>
+<script src="/campusMemory/js/api.js?v=4"></script>
+  <script src="/campusMemory/js/landing.js?v=4"></script>
 </body>
 </html>

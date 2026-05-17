@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sign Up — Campus Memories</title>
+  <link rel="stylesheet" href="/campusMemory/css/style.css?v=5" />
+</head>
+<body>
+  <div id="loading" class="loading-overlay"><div class="spinner"></div></div>
+
+  <div class="auth-page">
+    <div class="auth-card wide">
+      <h2>join your batch</h2>
+      <p class="auth-subtitle">private memories, zero randos</p>
+
+      <div id="alert" class="alert alert-error"></div>
+
+      <form id="signupForm" enctype="multipart/form-data">
+        <div class="form-group">
+          <label for="fullName">Full Name</label>
+          <input type="text" id="fullName" name="fullName" placeholder="John Doe" required />
+        </div>
+        <div class="form-group">
+          <label for="username">Username</label>
+          <input type="text" id="username" name="username" placeholder="johndoe" pattern="[a-zA-Z0-9_]{3,20}" title="3-20 letters, numbers, underscore" required />
+          <small class="form-hint">friends search you with @username</small>
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="you@university.edu" required />
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" id="password" name="password" placeholder="Min. 6 characters" minlength="6" required />
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="university">University</label>
+            <input type="text" id="university" name="university" placeholder="Peter University" required />
+          </div>
+          <div class="form-group">
+            <label for="department">Department</label>
+            <input type="text" id="department" name="department" placeholder="CSE" required />
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="year">Year</label>
+            <select id="year" name="year" required>
+              <option value="">Select year</option>
+              <option value="1st Year">1st Year</option>
+              <option value="2nd Year">2nd Year</option>
+              <option value="3rd Year">3rd Year</option>
+              <option value="4th Year">4th Year</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="section">Section</label>
+            <input type="text" id="section" name="section" placeholder="A" required />
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="profilePic">Profile Picture</label>
+          <input type="file" id="profilePic" name="profilePic" accept="image/*" />
+          <img id="profilePreview" class="file-preview" alt="Preview" />
+        </div>
+        <button type="submit" class="btn btn-primary" style="width:100%;margin-top:8px;">join the chaos</button>
+      </form>
+
+      <p class="auth-footer">
+        Already have an account? <a href="/campusMemory/login/">Login</a>
+      </p>
+      <p class="auth-footer"><a href="/campusMemory/">Back to home</a></p>
+    </div>
+  </div>
+
+    <script src="/campusMemory/js/github-pages.js"></script>
+  <script src="/campusMemory/js/demo-backend.js"></script>
+<script src="/campusMemory/js/copy.js?v=5"></script>
+  <script src="/campusMemory/js/api.js?v=5"></script>
+  <script src="/campusMemory/js/auth.js"></script>
+  <script>
+    redirectIfAuth();
+
+    document.getElementById('profilePic').addEventListener('change', (e) => {
+      const file = e.target.files[0];
+      const preview = document.getElementById('profilePreview');
+      if (file) {
+        preview.src = URL.createObjectURL(file);
+        preview.classList.add('visible');
+      }
+    });
+
+    document.getElementById('signupForm').addEventListener('submit', handleSignup);
+  </script>
+</body>
+</html>

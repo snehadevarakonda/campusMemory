@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>inner circle — Campus Memories</title>
+  <link rel="stylesheet" href="/campusMemory/css/style.css?v=5" />
+</head>
+<body class="explore-page">
+  <div id="loading" class="loading-overlay"><div class="spinner"></div></div>
+
+  <nav class="navbar">
+    <a href="/campusMemory/recent/" class="logo">Campus Memories</a>
+    <div class="nav-links">
+      <div id="userSearchMount"></div>
+      <div id="mainNav" class="nav-pills-wrap"></div>
+      <button id="themeToggle" class="btn btn-ghost btn-sm" type="button">🌙</button>
+      <button id="logoutBtn" class="btn btn-outline btn-sm" type="button">peace out</button>
+    </div>
+  </nav>
+
+  <header class="explore-header">
+    <h1>inner circle</h1>
+    <p class="explore-sub">memories from people you actually vibe with</p>
+  </header>
+
+  <div id="gridLoader" class="inline-loader">fetching the vibes…</div>
+
+  <main class="explore-layout">
+    <div id="exploreGrid" class="explore-masonry"></div>
+    <div id="scrollSentinel" class="scroll-sentinel"></div>
+  </main>
+
+    <script src="/campusMemory/js/github-pages.js"></script>
+  <script src="/campusMemory/js/demo-backend.js"></script>
+<script src="/campusMemory/js/copy.js?v=5"></script>
+  <script src="/campusMemory/js/api.js?v=5"></script>
+  <script src="/campusMemory/js/social.js?v=5"></script>
+  <script src="/campusMemory/js/following-feed.js?v=5"></script>
+  <script>
+    if (requireAuth()) initFollowingFeed();
+  </script>
+</body>
+</html>
