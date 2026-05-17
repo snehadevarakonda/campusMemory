@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>fresh chaos — Campus Memories</title>
+  <link rel="stylesheet" href="/css/style.css?v=5" />
+</head>
+<body class="explore-page">
+  <div id="loading" class="loading-overlay">
+    <div class="spinner"></div>
+    <p class="loading-label">loading the vibes…</p>
+  </div>
+
+  <nav class="navbar">
+    <a href="/recent" class="logo">Campus Memories</a>
+    <div class="nav-links">
+      <div id="userSearchMount"></div>
+      <div id="mainNav" class="nav-pills-wrap"></div>
+      <button id="themeToggle" class="btn btn-ghost btn-sm" type="button" aria-label="toggle vibe">🌙</button>
+      <button id="logoutBtn" class="btn btn-outline btn-sm" type="button">peace out</button>
+    </div>
+  </nav>
+
+  <header class="explore-header">
+    <h1>fresh chaos</h1>
+    <p class="explore-sub">campus lore from your college — scroll the vibe</p>
+    <div class="scope-toggle">
+      <label for="scopeSelect">show posts from:</label>
+      <select id="scopeSelect" class="scope-select">
+        <option value="university">whole campus</option>
+        <option value="year">your year only</option>
+      </select>
+    </div>
+  </header>
+
+  <p class="stories-section-label">batch moments</p>
+  <div id="storiesBar" class="stories-bar"></div>
+
+  <div id="gridLoader" class="inline-loader">fetching the vibes…</div>
+
+  <main class="explore-layout">
+    <div id="exploreGrid" class="explore-masonry"></div>
+    <div id="scrollSentinel" class="scroll-sentinel"></div>
+  </main>
+
+  <script src="/js/copy.js?v=5"></script>
+  <script src="/js/api.js?v=5"></script>
+  <script src="/js/social.js?v=5"></script>
+  <script src="/js/recent.js?v=5"></script>
+  <script>
+    if (requireAuth()) initRecent();
+  </script>
+</body>
+</html>
