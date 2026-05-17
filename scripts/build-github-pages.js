@@ -38,13 +38,13 @@ const rewriteHtml = (html) => {
   out = out.replace(/href="\/(?!campusMemory)/g, `href="${BASE}/`);
   out = out.replace(/src="\/(?!campusMemory)/g, `src="${BASE}/`);
 
-  // Inject GitHub Pages + demo backend (before copy.js)
+  // Inject GitHub Pages + demo backend before first app script
   const inject = `  <script src="${BASE}/js/github-pages.js"></script>\n  <script src="${BASE}/js/demo-backend.js"></script>\n`;
   if (!out.includes('github-pages.js')) {
-    out = out.replace(
-      /(\s*)<script src="[^"]*\/js\/copy\.js/,
-      `${inject}$1<script src="${BASE}/js/copy.js`
-    );
+    const scriptIdx = out.indexOf('<script src="');
+    if (scriptIdx >= 0) {
+      out = out.slice(0, scriptIdx) + inject + out.slice(scriptIdx);
+    }
   }
 
   return out;
