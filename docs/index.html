@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Campus Memories — Live Project</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="bg"></div>
+  <main class="card">
+    <span class="pill">full-stack · node · mongodb</span>
+    <h1>Campus Memories</h1>
+    <p class="sub">
+      Private college social app — class feeds, explore, following, profiles, stories.
+      Built with Express, MongoDB, and vanilla JS.
+    </p>
+    <div class="actions">
+      <a id="liveAppBtn" class="btn primary" href="#" target="_blank" rel="noopener">
+        open live app →
+      </a>
+      <a class="btn ghost" href="https://github.com/snehadevarakonda/campusMemory" target="_blank" rel="noopener">
+        view source
+      </a>
+    </div>
+    <p id="setupHint" class="hint hidden">
+      Live app URL not set yet. Deploy on Render, then update <code>LIVE_APP_URL</code> in <code>docs/config.js</code>.
+    </p>
+    <ul class="features">
+      <li>class chaos feed</li>
+      <li>fresh chaos explore</li>
+      <li>inner circle following</li>
+      <li>JWT auth · likes · comments</li>
+    </ul>
+    <footer>
+      <a href="https://snehadevarakonda.github.io/Portfolio/">← back to portfolio</a>
+    </footer>
+  </main>
+  <script src="config.js"></script>
+  <script>
+    const btn = document.getElementById('liveAppBtn');
+    const hint = document.getElementById('setupHint');
+    const url = window.LIVE_APP_URL || '';
+
+    if (url && !url.includes('YOUR_RENDER')) {
+      btn.href = url;
+    } else {
+      btn.href = 'https://github.com/snehadevarakonda/campusMemory#deploy-render--mongodb-atlas';
+      btn.textContent = 'setup live deploy →';
+      hint.classList.remove('hidden');
+    }
+  </script>
+</body>
+</html>

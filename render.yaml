@@ -2,7 +2,7 @@
 # Connect this repo, add env vars, deploy.
 services:
   - type: web
-    name: campus-memories
+    name: campusmemory
     runtime: node
     plan: free
     buildCommand: npm install
