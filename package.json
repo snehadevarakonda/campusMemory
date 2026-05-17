@@ -8,7 +8,8 @@
   },
   "scripts": {
     "start": "node server.js",
-    "dev": "node server.js"
+    "dev": "node server.js",
+    "build:pages": "node scripts/build-github-pages.js"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",

@@ -2,6 +2,24 @@
 
 const API_BASE = '/api';
 
+const go = (path) => {
+  window.location.href = typeof window.appPath === 'function' ? window.appPath(path) : path;
+};
+
+window.appPath =
+  window.appPath ||
+  ((p) => {
+    const path = p.startsWith('/') ? p : `/${p}`;
+    return path.endsWith('/') || path === '/' ? path : `${path}/`;
+  });
+
+window.route =
+  window.route ||
+  ((name, params = {}) => {
+    const q = new URLSearchParams(params).toString();
+    return `/${name}${q ? `?${q}` : ''}`;
+  });
+
 // Get stored JWT token
 const getToken = () => localStorage.getItem('token');
 
@@ -25,7 +43,7 @@ const getUser = () => {
 // Redirect to login if not authenticated
 const requireAuth = () => {
   if (!getToken()) {
-    window.location.href = '/login';
+    go('/login');
     return false;
   }
   return true;
@@ -34,7 +52,7 @@ const requireAuth = () => {
 // Redirect away from auth pages if already logged in
 const redirectIfAuth = () => {
   if (getToken()) {
-    window.location.href = '/dashboard';
+    go('/dashboard');
     return true;
   }
   return false;
@@ -42,6 +60,18 @@ const redirectIfAuth = () => {
 
 // Generic API request with JWT header
 const apiRequest = async (endpoint, options = {}) => {
+  if (window.USE_DEMO_BACKEND && typeof window.demoApiRequest === 'function') {
+    try {
+      return await window.demoApiRequest(endpoint, options);
+    } catch (e) {
+      if (e.status === 401) {
+        removeToken();
+        go('/login');
+      }
+      throw e;
+    }
+  }
+
   const headers = { ...options.headers };
 
   const token = getToken();
@@ -87,7 +117,7 @@ const apiRequest = async (endpoint, options = {}) => {
 
   if (response.status === 401) {
     removeToken();
-    window.location.href = '/login';
+    go('/login');
     throw new Error(data.message || 'Session expired. Please login again.');
   }
 
@@ -135,5 +165,5 @@ const defaultAvatar = (name = 'U') => {
 // Logout handler
 const logout = () => {
   removeToken();
-  window.location.href = '/';
+  go('/');
 };

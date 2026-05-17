@@ -53,7 +53,7 @@ const initProfile = async () => {
 
     const actions = document.getElementById('profileActions');
     if (profileUser.isSelf) {
-      actions.innerHTML = `<a href="/dashboard" class="btn btn-primary btn-sm">${COPY.profile.shareCta}</a>`;
+      actions.innerHTML = `<a href="${appPath('/dashboard')}" class="btn btn-primary btn-sm">${COPY.profile.shareCta}</a>`;
     } else if (profileUser.canFollow) {
       actions.innerHTML = followButtonHtml(
         profileUser.id,
@@ -92,7 +92,7 @@ const renderProfileGrid = (posts) => {
   grid.innerHTML = posts
     .map(
       (post) => `
-      <a href="/recent" class="profile-grid-item" title="${escapeHtml(post.caption)}">
+      <a href="${appPath('/recent')}" class="profile-grid-item" title="${escapeHtml(post.caption)}">
         <img src="${post.image}" alt="${escapeHtml(post.caption)}" loading="lazy" />
       </a>`
     )

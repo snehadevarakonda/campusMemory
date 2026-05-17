@@ -37,7 +37,7 @@ const loadFollowing = async (reset = false) => {
         <div class="empty-state full-width">
           <div class="emoji">👀</div>
           <p>${COPY.empty.following}</p>
-          <a href="/recent" class="btn btn-primary btn-sm" style="margin-top:12px;">${COPY.empty.followingCta}</a>
+          <a href="${appPath('/recent')}" class="btn btn-primary btn-sm" style="margin-top:12px;">${COPY.empty.followingCta}</a>
         </div>`;
     } else {
       const me = getUser();

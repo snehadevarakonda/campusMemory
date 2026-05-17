@@ -10,7 +10,21 @@ Private college memory-sharing app — class feeds, explore, following, profiles
 4. `npm start` or double-click `start.bat`
 5. Open **http://localhost:3000**
 
-## Deploy (Render + MongoDB Atlas)
+## Live on GitHub Pages (no Render)
+
+**URL:** https://snehadevarakonda.github.io/campusMemory/
+
+The app runs entirely in the browser on GitHub Pages (demo data in localStorage). Push to `main` and GitHub Actions deploys automatically.
+
+**Demo login:** `vignesh@campus.edu` / `password123` (also Kavya, Varsha, Pranay)
+
+Enable Pages: repo **Settings → Pages → Source: GitHub Actions**
+
+Local build: `npm run build:pages` (outputs to `docs/`)
+
+---
+
+## Deploy with server (optional — Render + MongoDB Atlas)
 
 ### 1. MongoDB Atlas (free)
 

@@ -201,7 +201,7 @@ const renderExploreCard = (post, options = {}) => {
   return `
     <article class="explore-card" data-post-id="${post._id}">
       <div class="explore-card-header">
-        <a href="/profile?id=${uid}" class="explore-user">
+        <a href="${route('profile', { id: uid })}" class="explore-user">
           <img src="${author.profilePic || defaultAvatar(author.fullName)}" class="avatar" alt="" />
           <span class="explore-username">${escapeHtml(author.fullName)}</span>
         </a>
@@ -236,7 +236,7 @@ const renderStories = (stories, container) => {
     .map((s) => {
       const u = s.userId || {};
       return `
-      <a href="/profile?id=${u._id}" class="story-ring">
+      <a href="${route('profile', { id: u._id })}" class="story-ring">
         <img src="${u.profilePic || defaultAvatar(u.fullName)}" alt="" />
         <span>${escapeHtml((u.fullName || '').split(' ')[0])}</span>
       </a>`;
@@ -307,7 +307,7 @@ const initUserSearch = () => {
         const followBtn = u.canFollow ? followButtonHtml(u.id, u.isFollowing, false) : '';
         return `
           <div class="user-search-item">
-            <a href="/profile?id=${u.id}" class="user-search-link">
+            <a href="${route('profile', { id: u.id })}" class="user-search-link">
               <img src="${pic}" alt="" class="avatar avatar-sm" />
               <span class="user-search-info">
                 <strong>${escapeHtml(u.fullName)}</strong>

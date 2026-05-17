@@ -16,7 +16,7 @@ const handleLogin = async (e) => {
 
     setToken(data.token);
     setUser(data.user);
-    window.location.href = '/dashboard';
+    go('/dashboard');
   } catch (error) {
     showAlert('alert', error.message);
   } finally {
@@ -40,7 +40,7 @@ const handleSignup = async (e) => {
 
     setToken(data.token);
     setUser(data.user);
-    window.location.href = '/dashboard';
+    go('/dashboard');
   } catch (error) {
     showAlert('alert', error.message);
   } finally {
