@@ -10,6 +10,16 @@ Private college memory-sharing app — class feeds, explore, following, profiles
 4. `npm start` or double-click `start.bat`
 5. Open **http://localhost:3000**
 
+> If port `3000` is occupied, set `PORT=3001` before starting.
+
+## Demo
+
+Campus Memories includes these main screens:
+
+- **Landing page preview**: hero copy, batch invite, and feature highlights for a private college memory-sharing experience.
+- **Profile view**: user card with batch details, memory drops, gang count, and a core memories section.
+- **Class chaos feed**: search for people, post new memories, and browse your section's shared batch posts.
+
 ## Live on GitHub Pages (no Render)
 
 **URL:** https://snehadevarakonda.github.io/campusMemory/

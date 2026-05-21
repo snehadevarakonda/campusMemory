@@ -1,6 +1,7 @@
 // API helper — handles JWT token and Fetch requests
 
-const API_BASE = '/api';
+// Use API_BASE_URL from config.js for all API requests
+const API_BASE = `${API_BASE_URL}/api`;
 
 const go = (path) => {
   window.location.href = typeof window.appPath === 'function' ? window.appPath(path) : path;
