@@ -1,3 +1,10 @@
+// Attach login handler after DOM is loaded
+document.addEventListener('DOMContentLoaded', () => {
+  const loginForm = document.getElementById('loginForm');
+  if (loginForm) {
+    loginForm.addEventListener('submit', handleLogin);
+  }
+});
 // Authentication handlers for login and signup pages
 //test change
 
